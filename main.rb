@@ -1,6 +1,6 @@
 require 'json'
 
-main_info = {};
+$main_info = {};
 
 proj_list = Dir['/home/ethan/games/kerbal/CKAN-meta/*']
 
@@ -9,8 +9,8 @@ proj_list.each { |proj|
 	versions.each { |v|
 		puts "Reading #{v}"
 		info = JSON.parse(File.read(v))
-		main_info[info['identifier']] = info['version']
+		$main_info[info['identifier']] = info['version']
 	}
 }
 
-puts main_info
+puts $main_info
